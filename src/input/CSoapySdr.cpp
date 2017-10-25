@@ -89,7 +89,8 @@ bool CSoapySdr::restart()
         m_device->getSampleRate(SOAPY_SDR_RX, 0) / 1000.0 <<
         " ksps.";
 
-    m_device->setAntenna(SOAPY_SDR_RX, 0, "LNAW");
+    m_device->setAntenna(SOAPY_SDR_RX, 0, "TX/RX");
+    m_device->setClockSource("gpsdo");
 
     if (m_freq > 0) {
         setFrequency(m_freq);
